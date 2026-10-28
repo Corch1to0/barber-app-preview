@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Barber App &bull; Estilo Uber (Design System Oficial)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --uber-black: #000000;
+    --uber-surface: #111111;
+    --uber-card: #181818;
+    --uber-border: #262626;
+    --uber-border-light: #333333;
+    --uber-blue: #276EF1;
+    --uber-green: #05944F;
+    --uber-red: #E11900;
+    --uber-white: #FFFFFF;
+    --uber-gray: #AFAFAF;
+    --uber-muted: #6B6B6B;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Uber Move Text', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.015em;
+  }
+
+  body {
+    background: var(--uber-black);
+    color: var(--uber-white);
+    margin: 0;
+    padding: 0;
+  }
+
+  .uber-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px 10px 18px;
+    background: var(--uber-black);
+  }
+  .uber-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .uber-back-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  .uber-title {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+  }
+
+  .uber-card {
+    background: var(--uber-card);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--uber-border);
+  }
+
+  .uber-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--uber-muted);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .uber-kpi-huge {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+
+  .uber-btn-primary {
+    background: #FFFFFF;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity 0.15s ease;
+  }
+  .uber-btn-primary:active {
+    opacity: 0.85;
+  }
+
+  .uber-btn-secondary {
+    background: #242424;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .uber-tabs {
+    display: flex;
+    background: #141414;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 16px;
+    border: 1px solid var(--uber-border);
+  }
+  .uber-tab {
+    flex: 1;
+    text-align: center;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--uber-gray);
+    cursor: pointer;
+  }
+  .uber-tab.active {
+    background: #FFFFFF;
+    color: #000000;
+    font-weight: 700;
+  }
+
+  .uber-pill {
+    background: #181818;
+    border: 1px solid var(--uber-border);
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--uber-gray);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .uber-pill.selected {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #000000;
+    font-weight: 700;
+  }
+
+  .uber-badge-green {
+    background: rgba(5, 148, 79, 0.18);
+    color: #05944F;
+    border: 1px solid rgba(5, 148, 79, 0.35);
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .uber-badge-black {
+    background: #242424;
+    color: #FFFFFF;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 7px;
+    text-transform: uppercase;
+  }
+
+  .phone-status-bar {
+    height: 38px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: var(--uber-black);
+  }
+  .phone-status-icons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .screen {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1;
+    padding: 12px 18px 24px 18px;
+    background: var(--uber-black);
+    overflow: hidden;
+  }
+
+  .phone-bottom-bar {
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--uber-black);
+    padding-bottom: 8px;
+  }
+  .phone-home-indicator {
+    width: 130px;
+    height: 4px;
+    background: #475569;
+    border-radius: 10px;
+  }
+
+
+    body {
+      background: #000000;
+      color: #FFFFFF;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mobile-wrapper {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #000000;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    }
+
+    .control-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #222222;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .uber-brand {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .uber-brand span {
+      background: #FFFFFF;
+      color: #000000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    .screens-viewport {
+      flex: 1;
+      padding: 12px 18px 85px 18px;
+      overflow-y: auto;
+    }
+
+    .screen-wrapper {
+      display: none;
+      flex-direction: column;
+      animation: fadeIn 0.18s ease forwards;
+    }
+    .screen-wrapper.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 440px;
+      background: rgba(17, 17, 17, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid #242424;
+      padding: 8px 12px 14px 12px;
+      z-index: 50;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .bottom-dock::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      flex-shrink: 0;
+      background: #181818;
+      border: 1px solid #2A2A2A;
+      border-radius: 16px;
+      padding: 6px 12px;
+      color: var(--uber-gray);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .nav-pill.active {
+      background: #FFFFFF;
+      color: #000000;
+      border-color: #FFFFFF;
+      font-weight: 700;
+    }
+    .nav-pill .pill-num {
+      font-size: 9px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-wrapper">
+    <header class="control-header">
+      <div class="uber-brand">
+        <span>UBER</span> BASE DESIGN SYSTEM
+      </div>
+      <div style="font-size:11px; color:var(--uber-gray); font-weight:600;">
+        Estilo Oficial Uber
+      </div>
+    </header>
+
+    <div class="phone-status-bar">
+      <span>11:38</span>
+      <div class="phone-status-icons">
+        <span style="font-size:10.5px;">LTE</span>
+        <span style="display:flex;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+        <span style="display:flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="6" y1="11" x2="6" y2="13"/></svg></span>
+      </div>
+    </div>
+
+    <main class="screens-viewport" id="viewport">
+      
+    <div class="screen-wrapper active" id="uber-01_Uber_Descubrimiento_Mapa">
+      
+      <!-- Search Input Uber Style -->
+      <div style="background:#181818; border:1px solid #2B2B2B; border-radius:12px; padding:12px 14px; display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+        <span style="color:#FFFFFF;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+        <div style="flex:1;">
+          <div style="font-size:10px; font-weight:700; text-transform:uppercase; color:var(--uber-muted); letter-spacing:0.06em;">Ubicación actual</div>
+          <div style="font-size:13.5px; font-weight:700; color:#FFFFFF;">Buenos Aires &bull; 5 barberos cerca</div>
+        </div>
+        <span class="uber-badge-black">Filtros</span>
+      </div>
+
+      <!-- Stylized Vector Map Canvas -->
+      <div style="flex:1; background:#0B0B0B; border:1px solid #1F1F1F; border-radius:16px; position:relative; overflow:hidden; min-height:300px; display:flex; align-items:center; justify-content:center;">
+        <!-- Road vector grid lines -->
+        <svg style="position:absolute; width:100%; height:100%; opacity:0.18;" viewBox="0 0 400 400">
+          <line x1="0" y1="80" x2="400" y2="80" stroke="#FFFFFF" stroke-width="3"/>
+          <line x1="0" y1="220" x2="400" y2="220" stroke="#FFFFFF" stroke-width="4"/>
+          <line x1="0" y1="310" x2="400" y2="310" stroke="#FFFFFF" stroke-width="2"/>
+          <line x1="120" y1="0" x2="120" y2="400" stroke="#FFFFFF" stroke-width="4"/>
+          <line x1="280" y1="0" x2="280" y2="400" stroke="#FFFFFF" stroke-width="3"/>
+          <line x1="40" y1="0" x2="360" y2="400" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6,6"/>
+        </svg>
+
+        <!-- Map Pins -->
+        <div style="position:absolute; top:25%; left:65%; transform:translate(-50%, -50%); display:flex; flex-direction:column; align-items:center;">
+          <div style="width:28px; height:28px; border-radius:50%; background:#242424; border:2px solid #555; display:flex; align-items:center; justify-content:center; color:#FFF; font-size:10px; font-weight:800;">
+            ✂
+          </div>
+        </div>
+
+        <div style="position:absolute; top:52%; left:48%; transform:translate(-50%, -50%); display:flex; flex-direction:column; align-items:center; z-index:5;">
+          <div style="background:#FFFFFF; color:#000000; padding:4px 10px; border-radius:14px; font-size:10px; font-weight:800; margin-bottom:4px; box-shadow:0 4px 12px rgba(0,0,0,0.8); display:flex; align-items:center; gap:4px;">
+            <span>★ 5.0</span> &bull; <span>Luis A.</span>
+          </div>
+          <div style="width:36px; height:36px; border-radius:50%; background:#000000; border:3px solid #FFFFFF; display:flex; align-items:center; justify-content:center; color:#FFF; font-size:14px; box-shadow:0 4px 16px rgba(0,0,0,0.9);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Sheet Barbero Card Uber Style -->
+      <div class="uber-card" style="margin-top:12px; margin-bottom:0; background:#181818; border-color:#2C2C2C;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div style="width:48px; height:48px; border-radius:8px; background:#2A2A2A; display:flex; align-items:center; justify-content:center; font-weight:800; color:#FFFFFF; font-size:16px;">
+              LA
+            </div>
+            <div>
+              <div style="font-size:15px; font-weight:700; color:#FFFFFF; letter-spacing:-0.02em;">Luis Antonio Valerio Mora</div>
+              <div style="display:flex; align-items:center; gap:6px; font-size:12px; color:var(--uber-gray); margin-top:2px;">
+                <span class="uber-badge-black">PRO BARBER</span>
+                <span style="display:flex; align-items:center; gap:2px; color:#FFFFFF; font-weight:700;"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 5.0</span>
+                <span>(1)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+          <span class="uber-pill" style="font-size:11px; padding:4px 9px;">Rapada taza &bull; ₡2.000</span>
+          <span class="uber-pill" style="font-size:11px; padding:4px 9px;">Corte militar &bull; ₡3.000</span>
+        </div>
+
+        <button class="uber-btn-primary">
+          Ver perfil y reservar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-02_Uber_Reserva_Servicios_Horarios">
+      
+      <!-- Top Profile Summary -->
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--uber-border);">
+        <div style="width:52px; height:52px; border-radius:10px; background:#222; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px;">
+          LA
+        </div>
+        <div>
+          <div style="font-size:16px; font-weight:800; color:#FFF;">Luis Antonio Valerio Mora</div>
+          <div style="display:flex; align-items:center; gap:6px; margin-top:2px;">
+            <span class="uber-badge-black">PRO BARBER</span>
+            <span style="font-size:12px; color:#FFF; font-weight:700; display:flex; align-items:center; gap:3px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 5.0</span>
+            <span style="font-size:11px; color:var(--uber-muted);">(1 reseña)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segmented Tabs Uber Style -->
+      <div class="uber-tabs" style="margin-bottom:14px;">
+        <div class="uber-tab active">Reservar</div>
+        <div class="uber-tab">Productos</div>
+        <div class="uber-tab">Info</div>
+        <div class="uber-tab">Reseñas</div>
+      </div>
+
+      <!-- Catálogo de Servicios (Estilo Selector de Viajes Uber) -->
+      <div class="uber-label">Catálogo de Servicios</div>
+
+      <!-- Servicio 1: Seleccionado -->
+      <div class="uber-card" style="border: 2px solid #FFFFFF; background:#202020; margin-bottom:8px; padding:12px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:14.5px; font-weight:700; color:#FFFFFF;">Rapada taza</div>
+            <div style="font-size:12px; color:var(--uber-gray); margin-top:2px;">Corte clásico con máquina &bull; 30 min</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:16px; font-weight:800; color:#FFFFFF;">₡2.000</div>
+            <div style="font-size:10px; font-weight:700; color:#05944F; display:flex; align-items:center; gap:2px; justify-content:flex-end;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SELECCIONADO
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="uber-card" style="margin-bottom:8px; padding:12px 14px; background:#141414;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:14.5px; font-weight:700; color:#FFFFFF;">Corte medio militar</div>
+            <div style="font-size:12px; color:var(--uber-muted); margin-top:2px;">Degradado medio profesional &bull; 40 min</div>
+          </div>
+          <div style="font-size:16px; font-weight:800; color:#FFFFFF;">₡3.000</div>
+        </div>
+      </div>
+
+      <!-- Selector de Fecha Horizontal -->
+      <div class="uber-label" style="margin-top:10px;">Selecciona Fecha</div>
+      <div style="display:flex; gap:8px; overflow-x:auto; margin-bottom:12px; padding-bottom:4px;">
+        <div class="uber-pill">Lunes 19</div>
+        <div class="uber-pill selected">Miércoles 21</div>
+        <div class="uber-pill">Jueves 22</div>
+        <div class="uber-pill">Viernes 23</div>
+      </div>
+
+      <!-- Selector de Hora Horizontal -->
+      <div class="uber-label">Selecciona Hora</div>
+      <div style="display:flex; gap:8px; overflow-x:auto; margin-bottom:16px; padding-bottom:4px;">
+        <div class="uber-pill">07:00 AM</div>
+        <div class="uber-pill">07:30 AM</div>
+        <div class="uber-pill selected">08:00 AM</div>
+        <div class="uber-pill">08:30 AM</div>
+      </div>
+
+      <!-- CTA Principal Uber -->
+      <button class="uber-btn-primary" style="margin-top:auto;">
+        Confirmar Cita &bull; ₡2.000
+      </button>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-03_Uber_Dashboard_Barbero">
+      
+      <!-- Header Barbero Uber Driver -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--uber-muted); text-transform:uppercase; letter-spacing:0.06em;">Bienvenido</div>
+          <div style="font-size:19px; font-weight:800; color:#FFFFFF;">Jafet Lara</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; background:#1C1C1C; border:1px solid #2B2B2B; border-radius:20px; padding:5px 12px;">
+          <span style="width:8px; height:8px; border-radius:50%; background:#05944F;"></span>
+          <span style="font-size:11px; font-weight:700; color:#FFFFFF;">EN LÍNEA</span>
+        </div>
+      </div>
+
+      <!-- Main Balance Card Uber Driver Style -->
+      <div class="uber-card" style="background:#181818; padding:18px;">
+        <div class="uber-label">
+          <span>Ingresos del Mes</span>
+          <span style="color:#FFF; font-size:12px; font-weight:600; cursor:pointer;">Ver Finanzas ›</span>
+        </div>
+        <div class="uber-kpi-huge">₡49.000</div>
+        <div style="display:flex; gap:8px; align-items:center; margin-top:4px;">
+          <span class="uber-badge-green">↑ 18% vs mes anterior</span>
+          <span style="font-size:11px; color:var(--uber-muted);">13 servicios completados</span>
+        </div>
+      </div>
+
+      <!-- 2 Stats Cards -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+        <div class="uber-card" style="padding:14px; margin-bottom:0;">
+          <div class="uber-label">Citas Hoy</div>
+          <div style="font-size:24px; font-weight:800; color:#FFF;">5</div>
+          <div style="font-size:11px; color:var(--uber-muted); margin-top:2px;">2 pendientes</div>
+        </div>
+        <div class="uber-card" style="padding:14px; margin-bottom:0;">
+          <div class="uber-label">Total Mes</div>
+          <div style="font-size:24px; font-weight:800; color:#FFF;">13</div>
+          <div style="font-size:11px; color:var(--uber-muted); margin-top:2px;">Meta: 20 citas</div>
+        </div>
+      </div>
+
+      <!-- Próxima Cita -->
+      <div class="uber-label">Próxima Cita</div>
+      <div class="uber-card" style="border-left:4px solid #FFFFFF; margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <div style="font-size:15px; font-weight:700; color:#FFF;">Brato Pito</div>
+          <span class="uber-badge-black" style="background:#262626;">PENDIENTE</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px; font-size:12px; color:var(--uber-gray);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>21/4/2026 &bull; 8:52 AM</span>
+        </div>
+      </div>
+
+      <!-- Rendimiento Semanal Bar Chart Minimalista -->
+      <div class="uber-label">Rendimiento Semanal</div>
+      <div class="uber-card" style="padding:14px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; height:75px; padding-top:10px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:12px; background:#2A2A2A; border-radius:2px;"></div>
+            <span style="font-size:10px; color:var(--uber-muted);">15/4</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:16px; background:#2A2A2A; border-radius:2px;"></div>
+            <span style="font-size:10px; color:var(--uber-muted);">16/4</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:10px; background:#2A2A2A; border-radius:2px;"></div>
+            <span style="font-size:10px; color:var(--uber-muted);">17/4</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:22px; background:#2A2A2A; border-radius:2px;"></div>
+            <span style="font-size:10px; color:var(--uber-muted);">18/4</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:14px; background:#2A2A2A; border-radius:2px;"></div>
+            <span style="font-size:10px; color:var(--uber-muted);">19/4</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:18px; background:#2A2A2A; border-radius:2px;"></div>
+            <span style="font-size:10px; color:var(--uber-muted);">20/4</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
+            <div style="width:14px; height:60px; background:#FFFFFF; border-radius:2px;"></div>
+            <span style="font-size:10px; color:#FFFFFF; font-weight:700;">21/4</span>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-04_Uber_Finanzas_Balance">
+      
+      <!-- Switch Mensual / Anual Uber -->
+      <div class="uber-tabs" style="margin-bottom:16px;">
+        <div class="uber-tab active">Mensual</div>
+        <div class="uber-tab">Anual</div>
+      </div>
+
+      <!-- Balance Card -->
+      <div class="uber-card" style="padding:18px;">
+        <div class="uber-label">
+          <span>Balance &bull; Abril 2026</span>
+          <span class="uber-badge-green">↑ Positivo</span>
+        </div>
+        <div class="uber-kpi-huge">₡39.000</div>
+
+        <!-- Incomes vs Expenses mini row -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; padding-top:12px; border-top:1px solid var(--uber-border);">
+          <div>
+            <div style="font-size:11px; color:var(--uber-muted); font-weight:600;">INGRESOS</div>
+            <div style="font-size:16px; font-weight:800; color:#05944F; margin-top:2px;">₡52.000</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:var(--uber-muted); font-weight:600;">GASTOS</div>
+            <div style="font-size:16px; font-weight:800; color:#E11900; margin-top:2px;">₡13.000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakdown Items -->
+      <div class="uber-label">Desglose de Ingresos</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+        <div class="uber-card" style="padding:14px; margin-bottom:0;">
+          <div class="uber-label">Citas</div>
+          <div style="font-size:18px; font-weight:800; color:#FFF;">₡49.000</div>
+          <div style="font-size:11px; color:var(--uber-muted); margin-top:2px;">Cobros automáticos</div>
+        </div>
+        <div class="uber-card" style="padding:14px; margin-bottom:0;">
+          <div class="uber-label">Manual</div>
+          <div style="font-size:18px; font-weight:800; color:#FFF;">₡3.000</div>
+          <div style="font-size:11px; color:var(--uber-muted); margin-top:2px;">Propinas / extras</div>
+        </div>
+      </div>
+
+      <!-- Gastos Operativos -->
+      <div class="uber-label">Gastos Registrados</div>
+      <div class="uber-card" style="padding:14px; margin-bottom:18px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:14px; font-weight:700; color:#FFF;">Gastos del mes</div>
+            <div style="font-size:11px; color:var(--uber-muted); margin-top:2px;">4 movimientos cargados</div>
+          </div>
+          <div style="font-size:17px; font-weight:800; color:#E11900;">-₡13.000</div>
+        </div>
+      </div>
+
+      <!-- Floating Uber Action Button -->
+      <button class="uber-btn-primary" style="margin-top:auto;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Nuevo Movimiento
+      </button>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-05_Uber_Distribucion_Gastos">
+      
+      <!-- Ratio Bar Uber Style -->
+      <div class="uber-card" style="padding:18px;">
+        <div class="uber-label">Distribución Financiera</div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:8px;">
+          <span style="color:#FFFFFF;">80% Ingresos (₡52.000)</span>
+          <span style="color:var(--uber-muted);">20% Gastos (₡13.000)</span>
+        </div>
+        <div style="height:10px; background:#242424; border-radius:6px; overflow:hidden; display:flex;">
+          <div style="width:80%; height:100%; background:#FFFFFF;"></div>
+          <div style="width:20%; height:100%; background:#E11900;"></div>
+        </div>
+      </div>
+
+      <!-- Movimientos Filters -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin:14px 0 10px 0;">
+        <div class="uber-label" style="margin:0;">Movimientos (4 res.)</div>
+      </div>
+
+      <div style="display:flex; gap:6px; overflow-x:auto; margin-bottom:12px; padding-bottom:4px;">
+        <div class="uber-pill selected">Todos</div>
+        <div class="uber-pill">Ingresos</div>
+        <div class="uber-pill">Fijos</div>
+        <div class="uber-pill">Variables</div>
+      </div>
+
+      <!-- Movement 1: Propina -->
+      <div class="uber-card" style="margin-bottom:8px; padding:12px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(5,148,79,0.15); display:flex; align-items:center; justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#05944F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#FFF;">Propina</div>
+              <div style="font-size:11px; color:var(--uber-muted);">20 Abr &bull; Ingreso extra</div>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px; font-weight:800; color:#05944F;">+₡3.000</div>
+            <div style="font-size:10px; color:var(--uber-muted);">CRC</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movement 2: Guantes -->
+      <div class="uber-card" style="margin-bottom:8px; padding:12px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(225,25,0,0.15); display:flex; align-items:center; justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E11900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#FFF;">Guantes de nitrilo</div>
+              <div style="font-size:11px; color:var(--uber-muted);">20 Abr &bull; Insumos</div>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px; font-weight:800; color:#FFFFFF;">-₡3.000</div>
+            <div style="font-size:10px; color:var(--uber-muted);">CRC</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Movement 3: A/C -->
+      <div class="uber-card" style="margin-bottom:8px; padding:12px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(225,25,0,0.15); display:flex; align-items:center; justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E11900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px; font-weight:700; color:#FFF;">Aire Acondicionado</div>
+              <div style="font-size:11px; color:var(--uber-muted);">20 Abr &bull; Servicios</div>
+            </div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:14px; font-weight:800; color:#FFFFFF;">-₡3.000</div>
+            <div style="font-size:10px; color:var(--uber-muted);">CRC</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="uber-btn-primary" style="margin-top:auto;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Nuevo Movimiento
+      </button>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-06_Uber_Calendario_Agenda">
+      
+      <!-- Segmented View Selector -->
+      <div class="uber-tabs" style="margin-bottom:14px;">
+        <div class="uber-tab">General</div>
+        <div class="uber-tab active">Calendario</div>
+      </div>
+
+      <!-- Calendar Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; padding:0 4px;">
+        <span style="color:#FFFFFF; cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span>
+        <div style="font-size:16px; font-weight:800; color:#FFFFFF;">Abril 2026</div>
+        <span style="color:#FFFFFF; cursor:pointer;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+
+      <!-- Calendar Matrix Uber Style -->
+      <div class="uber-card" style="padding:12px;">
+        <!-- Weekday header -->
+        <div style="display:grid; grid-template-columns:repeat(7, 1fr); text-align:center; font-size:10.5px; font-weight:700; color:var(--uber-muted); margin-bottom:8px;">
+          <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+        </div>
+
+        <!-- Days grid -->
+        <div style="display:grid; grid-template-columns:repeat(7, 1fr); gap:6px; text-align:center;">
+          <span style="color:#333; padding:8px 0; font-size:12px;">29</span>
+          <span style="color:#333; padding:8px 0; font-size:12px;">30</span>
+          <span style="color:#333; padding:8px 0; font-size:12px;">31</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">1</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">2</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">3</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">4</span>
+
+          <span style="color:#888; padding:8px 0; font-size:12px;">5</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">6</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">7</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">8</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">9</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">10</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">11</span>
+
+          <span style="color:#888; padding:8px 0; font-size:12px;">12</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">13</span>
+          <span style="color:#FFF; padding:8px 0; font-size:12px; position:relative;">
+            14<span style="position:absolute; bottom:2px; left:50%; transform:translateX(-50%); width:4px; height:4px; border-radius:50%; background:#FFF;"></span>
+          </span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">15</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">16</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">17</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">18</span>
+
+          <span style="color:#888; padding:8px 0; font-size:12px;">19</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">20</span>
+          <!-- Active day 21 -->
+          <div style="background:#FFFFFF; color:#000000; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:12px; margin:0 auto;">
+            21
+          </div>
+          <span style="color:#FFF; padding:8px 0; font-size:12px; position:relative;">
+            22<span style="position:absolute; bottom:2px; left:50%; transform:translateX(-50%); width:4px; height:4px; border-radius:50%; background:#FFF;"></span>
+          </span>
+          <span style="color:#FFF; padding:8px 0; font-size:12px; position:relative;">
+            23<span style="position:absolute; bottom:2px; left:50%; transform:translateX(-50%); width:4px; height:4px; border-radius:50%; background:#FFF;"></span>
+          </span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">24</span>
+          <span style="color:#888; padding:8px 0; font-size:12px;">25</span>
+        </div>
+      </div>
+
+      <!-- Agenda del día seleccionado -->
+      <div class="uber-label">Turnos para el 21 de Abril (5 citas)</div>
+      <div class="uber-card" style="padding:12px 14px; margin-bottom:8px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:14px; font-weight:700; color:#FFF;">08:52 AM &bull; Brato Pito</div>
+            <div style="font-size:11px; color:var(--uber-muted);">Rapada taza &bull; ₡2.000</div>
+          </div>
+          <span class="uber-badge-black">PENDIENTE</span>
+        </div>
+      </div>
+      <div class="uber-card" style="padding:12px 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:14px; font-weight:700; color:#FFF;">10:00 AM &bull; Andrés Castro</div>
+            <div style="font-size:11px; color:var(--uber-muted);">Corte militar &bull; ₡3.000</div>
+          </div>
+          <span class="uber-badge-green">CONFIRMADO</span>
+        </div>
+      </div>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-07_Uber_Turnos_del_Dia">
+      
+      <!-- Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <div>
+          <div style="font-size:17px; font-weight:800; color:#FFF;">Franco Guerra</div>
+          <span class="uber-badge-black">PROFESIONAL HABILITADO</span>
+        </div>
+        <div class="uber-pill selected" style="font-size:11px;">Viernes, 9 Oct</div>
+      </div>
+
+      <!-- Profile Progress Card -->
+      <div class="uber-card" style="padding:12px 14px; background:#181818; margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:#242424; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px; color:#FFF;">
+              83%
+            </div>
+            <div>
+              <div style="font-size:13px; font-weight:700; color:#FFF;">Completá tu perfil</div>
+              <div style="font-size:11px; color:var(--uber-muted);">Fotos de tus trabajos pendientes</div>
+            </div>
+          </div>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Turno 1 -->
+      <div class="uber-card" style="border-left:4px solid #FFFFFF; margin-bottom:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+          <div>
+            <div style="font-size:17px; font-weight:800; color:#FFFFFF;">13:30 <span style="font-size:11px; font-weight:400; color:var(--uber-muted);">hs</span></div>
+            <div style="font-size:14px; font-weight:700; color:#FFFFFF;">Damián pavon</div>
+          </div>
+          <span class="uber-badge-green">COMPLETADO</span>
+        </div>
+        <div style="font-size:12px; color:var(--uber-gray); margin-bottom:8px;">CORTE+ BARBA+ PERF. CEJAS</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:1px solid var(--uber-border); font-size:11.5px;">
+          <span style="color:var(--uber-gray);">Efectivo &bull; seña $1.000 paga</span>
+          <span style="color:#FFFFFF; font-weight:700;">cobrás $20.000</span>
+        </div>
+      </div>
+
+      <!-- Turno 2 -->
+      <div class="uber-card" style="border-left:4px solid #FFFFFF; margin-bottom:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+          <div>
+            <div style="font-size:17px; font-weight:800; color:#FFFFFF;">14:30 <span style="font-size:11px; font-weight:400; color:var(--uber-muted);">hs</span></div>
+            <div style="font-size:14px; font-weight:700; color:#FFFFFF;">Lautaro Rodríguez</div>
+          </div>
+          <span class="uber-badge-green">COMPLETADO</span>
+        </div>
+        <div style="font-size:12px; color:var(--uber-gray); margin-bottom:8px;">CORTE+ BARBA+ PERF. CEJAS</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:1px solid var(--uber-border); font-size:11.5px;">
+          <span style="color:var(--uber-gray);">Efectivo &bull; seña $1.000 paga</span>
+          <span style="color:#FFFFFF; font-weight:700;">cobrás $20.000</span>
+        </div>
+      </div>
+    
+    </div>
+  
+    <div class="screen-wrapper" id="uber-08_Uber_Comisiones_Liquidacion">
+      
+      <!-- Filter Tabs -->
+      <div class="uber-tabs" style="margin-bottom:14px;">
+        <div class="uber-tab active">Este mes</div>
+        <div class="uber-tab">Mes pasado</div>
+        <div class="uber-tab">30 días</div>
+      </div>
+
+      <!-- Global Local Card -->
+      <div class="uber-card" style="padding:16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div class="uber-label">Facturado</div>
+            <div style="font-size:22px; font-weight:800; color:#FFF;">$135.250</div>
+            <div style="font-size:11px; color:var(--uber-muted);">8 cortes completados</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="uber-label">Para el local</div>
+            <div style="font-size:22px; font-weight:800; color:#FFFFFF;">$67.625</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barbero 1: Franco Guerra -->
+      <div class="uber-card" style="border: 1px solid #383838; margin-bottom:10px;">
+        <div style="font-size:14.5px; font-weight:800; color:#FFF; margin-bottom:2px;">Franco Guerra</div>
+        <div style="font-size:11.5px; color:var(--uber-muted); margin-bottom:12px;">8 cortes &bull; $135.250</div>
+
+        <div style="display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid var(--uber-border); font-size:13px;">
+          <div>
+            <div style="font-size:11px; color:var(--uber-muted);">Para el barbero (50%)</div>
+            <div style="font-size:16px; font-weight:700; color:#FFF;">$67.625</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px; color:var(--uber-muted);">Para el local</div>
+            <div style="font-size:16px; font-weight:700; color:#FFF;">$67.625</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:8px; margin-top:10px;">
+          <button class="uber-btn-secondary" style="flex:1;">% Modificar Split</button>
+          <button class="uber-btn-primary" style="flex:1; padding:10px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Liquidar</button>
+        </div>
+      </div>
+
+      <!-- Barbero 2: Benjamin Marchionno -->
+      <div class="uber-card">
+        <div style="font-size:14.5px; font-weight:800; color:#FFF; margin-bottom:2px;">Benjamin Marchionno</div>
+        <div style="font-size:11.5px; color:var(--uber-muted); margin-bottom:12px;">0 cortes &bull; $0</div>
+
+        <div style="display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid var(--uber-border); font-size:13px;">
+          <div>
+            <div style="font-size:11px; color:var(--uber-muted);">Para el barbero (40%)</div>
+            <div style="font-size:16px; font-weight:700; color:#FFF;">$0</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px; color:var(--uber-muted);">Para el local</div>
+            <div style="font-size:16px; font-weight:700; color:#FFF;">$0</div>
+          </div>
+        </div>
+
+        <button class="uber-btn-secondary" style="width:100%; margin-top:8px;">% Modificar Split</button>
+      </div>
+    
+    </div>
+  
+    </main>
+
+    <nav class="bottom-dock">
+      
+    <button class="nav-pill active" onclick="switchUberScreen('01_Uber_Descubrimiento_Mapa', this)">
+      <span class="pill-num">01</span>
+      <span class="pill-name">Descubrimiento en Mapa</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('02_Uber_Reserva_Servicios_Horarios', this)">
+      <span class="pill-num">02</span>
+      <span class="pill-name">Reserva & Servicios</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('03_Uber_Dashboard_Barbero', this)">
+      <span class="pill-num">03</span>
+      <span class="pill-name">Dashboard Barbero</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('04_Uber_Finanzas_Balance', this)">
+      <span class="pill-num">04</span>
+      <span class="pill-name">Finanzas & Balance</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('05_Uber_Distribucion_Gastos', this)">
+      <span class="pill-num">05</span>
+      <span class="pill-name">Distribución & Gastos</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('06_Uber_Calendario_Agenda', this)">
+      <span class="pill-num">06</span>
+      <span class="pill-name">Calendario Mensual</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('07_Uber_Turnos_del_Dia', this)">
+      <span class="pill-num">07</span>
+      <span class="pill-name">Turnos del Día</span>
+    </button>
+  
+    <button class="nav-pill" onclick="switchUberScreen('08_Uber_Comisiones_Liquidacion', this)">
+      <span class="pill-num">08</span>
+      <span class="pill-name">Comisiones & Liquidación</span>
+    </button>
+  
+    </nav>
+  </div>
+
+  <script>
+    function switchUberScreen(screenName, btn) {
+      document.querySelectorAll('.screen-wrapper').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById('uber-' + screenName);
+      if (target) target.classList.add('active');
+
+      document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      document.getElementById('viewport').scrollTop = 0;
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>
