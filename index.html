@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="blue" data-mode="formal">
+<html lang="es" data-theme="uber" data-mode="formal">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Barber App &bull; Visor Móvil Interactivo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* THEME: UBER (Uber Official Minimalist Dark) */
+    html[data-theme="uber"] {
+      --bg-dark: #000000;
+      --bg-card: #121212;
+      --bg-card-hover: #181818;
+      --border-subtle: #222222;
+      --border-glow: #333333;
+      --accent-cyan: #05944f;
+      --accent-blue: #276ef1;
+      --accent-deep: #0e8345;
+      --accent-gradient: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+      --accent-emerald: #05944f;
+      --accent-coral: #e11900;
+      --text-main: #ffffff;
+      --text-muted: #afafaf;
+      --text-dim: #6e6e6e;
+      --topbar-bg: rgba(0, 0, 0, 0.95);
+      --badge-theme: #05944f;
+    }
+
     /* THEME: BLUE (Midnight Sapphire & Electric Cyan) */
     html[data-theme="blue"] {
       --bg-dark: #070c18;
@@ -533,7 +553,10 @@
     <header class="control-header">
       <!-- Color Switcher -->
       <div class="toggles-group">
-        <button class="control-btn active" id="btnThemeBlue" onclick="setTheme('blue')">
+        <button class="control-btn active" id="btnThemeUber" onclick="setTheme('uber')">
+          <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#ffffff; border:1px solid #666;"></span> Uber
+        </button>
+        <button class="control-btn" id="btnThemeBlue" onclick="setTheme('blue')">
           <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#38bdf8;"></span> Azul
         </button>
         <button class="control-btn" id="btnThemeRed" onclick="setTheme('red')">
@@ -2167,8 +2190,9 @@
   <script>
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      document.getElementById('btnThemeBlue').classList.toggle('active', theme === 'blue');
-      document.getElementById('btnThemeRed').classList.toggle('active', theme === 'red');
+      if (document.getElementById('btnThemeUber')) document.getElementById('btnThemeUber').classList.toggle('active', theme === 'uber');
+      if (document.getElementById('btnThemeBlue')) document.getElementById('btnThemeBlue').classList.toggle('active', theme === 'blue');
+      if (document.getElementById('btnThemeRed')) document.getElementById('btnThemeRed').classList.toggle('active', theme === 'red');
     }
 
     function setMode(mode) {
